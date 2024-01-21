@@ -5,3 +5,6 @@ venv/
 
 #Ds_Store
 .DS_Store
+
+#PY Cache
+__pycache__/
