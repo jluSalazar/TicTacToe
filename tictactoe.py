@@ -14,7 +14,8 @@ EMPTY = None
 
 def initial_state():
     """
-    Returns starting state of the board.
+    Retorna el estado inicial del tablero como 
+    una lista 3x3 con todas las casillas vacías.
     """
     return [[EMPTY, EMPTY, EMPTY],
             [EMPTY, EMPTY, EMPTY],
@@ -23,7 +24,8 @@ def initial_state():
 
 def player(board):
     """
-    Returns player who has the next turn on a board.
+    Determina el jugador que tiene el próximo turno 
+    según la cantidad de X, O y casillas vacías en el tablero.
     """
     # Scan board for entries and determine next player:
 
@@ -47,7 +49,8 @@ def player(board):
 
 def actions(board):
     """
-    Returns set of all possible actions (i, j) available on the board.
+    Retorna un conjunto de todas las 
+    acciones posibles (i, j) disponibles en el tablero.
     """
     moves = set()
 
@@ -61,7 +64,8 @@ def actions(board):
 
 def result(board, action):
     """
-    Returns the board that results from making move (i, j) on the board.
+    Retorna el tablero resultante 
+    después de realizar una acción (i, j) en el tablero actual.
     """
     i = action[0]
     j = action[1]
@@ -81,7 +85,8 @@ def result(board, action):
 
 def winner(board):
     """
-    Returns the winner of the game, if there is one.
+    Determina si hay un ganador en el tablero, 
+    revisando filas, columnas y diagonales.
     """
     # Check rows:
     for row in board:
@@ -134,7 +139,8 @@ def terminal(board):
 
 def utility(board):
     """
-    Returns 1 if X has won the game, -1 if O has won, 0 otherwise.
+    Retorna la utilidad del estado actual del tablero 
+    (1 si X gana, -1 si O gana, 0 de lo contrario).
     """
     if winner(board) == 'X':
       return 1
@@ -146,7 +152,13 @@ def utility(board):
 
 def minimax(board):
     """
-    Returns the optimal action for the current player on the board.
+    •	Implementa el algoritmo Minimax con poda alfa-beta 
+      para determinar la mejor acción para el jugador actual.
+    •	Dos funciones auxiliares max_player y min_player 
+      representan el jugador maximizante (X) y minimizante (O) respectivamente.
+    •	Utiliza la función actions para generar acciones 
+      posibles y elige la mejor acción para el jugador actual.
+
     """
 
     global actions_explored
